@@ -38,7 +38,7 @@ class App extends Component {
       <div className="App">
         <h1>hi I'm a react app</h1>
         <p>this is working</p>
-        <button onClick={() => this.switchNameHaldler('fuck')}> Switch Name </button>
+        <button onClick={() => this.switchNameHaldler('go away')}> Switch Name </button>
 
         <Person 
         name={this.state.persons[0].name} 
