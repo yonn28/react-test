@@ -9,7 +9,8 @@ class App extends Component {
       {name:'yonny' , age: 27},
       {name:'manu' , age: 27},
       {name:'stephanie' , age: 27}
-    ]
+    ],
+    showPersons: true
   }
   switchNameHaldler=(change)=>{
     // console.log('was click');
@@ -21,6 +22,13 @@ class App extends Component {
         {name:'sasdfas' , age: 27}
     ]}
     )
+  }
+
+  togglePersonsHandler = () =>{
+    console.log(this.state.showPersons)
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow})
+ 
   }
 
   nameChangeHandler = (event) =>{
@@ -48,22 +56,27 @@ class App extends Component {
         <h1>hi I'm a react app</h1>
         <p>this is working</p>
         <button style={style} 
-                onClick={() => this.switchNameHaldler('go away')}> Switch Name </button>
+                onClick={this.togglePersonsHandler}> Toggle Persons </button>
+        <h1>{this.state.showPersons}</h1>
+        { this.state.showPersons === true ? 
+            <div >
+                <Person 
+                name={this.state.persons[0].name} 
+                age={this.state.persons[0].age}
+                click={this.switchNameHaldler.bind(this,'ok')}
+                > My Hobbies: racing </Person>
 
-        <Person 
-        name={this.state.persons[0].name} 
-        age={this.state.persons[0].age}
-        click={this.switchNameHaldler.bind(this,'ok')}
-        > My Hobbies: racing </Person>
+                <Person 
+                name={this.state.persons[1].name} 
+                age={this.state.persons[1].age}
+                changed = {this.nameChangeHandler}> </Person>
 
-        <Person 
-        name={this.state.persons[1].name} 
-        age={this.state.persons[1].age}
-        changed = {this.nameChangeHandler}> </Person>
-
-        <Person 
-        name={this.state.persons[2].name} 
-        age={this.state.persons[2].age}> </Person>
+                <Person 
+                name={this.state.persons[2].name} 
+                age={this.state.persons[2].age}> </Person>
+            </div>
+          :null
+        }
 
       </div>
     );
