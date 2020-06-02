@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   togglePersonsHandler = () =>{
-    console.log(this.state.showPersons)
+
     const doesShow = this.state.showPersons;
     this.setState({showPersons: !doesShow})
  
@@ -49,16 +49,13 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer'
     };
-    
 
-    return (
-      <div className="App">
-        <h1>hi I'm a react app</h1>
-        <p>this is working</p>
-        <button style={style} 
-                onClick={this.togglePersonsHandler}> Toggle Persons </button>
-        <h1>{this.state.showPersons}</h1>
-        { this.state.showPersons === true ? 
+    let persons = null;
+
+
+    if(this.state.showPersons){
+
+       persons =(
             <div >
                 <Person 
                 name={this.state.persons[0].name} 
@@ -75,8 +72,20 @@ class App extends Component {
                 name={this.state.persons[2].name} 
                 age={this.state.persons[2].age}> </Person>
             </div>
-          :null
-        }
+       )
+      
+      
+      }
+
+    return (
+      <div className="App">
+        <h1>hi I'm a react app</h1>
+        <p>this is working</p>
+        <button style={style} 
+                onClick={this.togglePersonsHandler}> Toggle Persons </button>
+        <h1>{this.state.showPersons}</h1>
+       
+        {persons}
 
       </div>
     );
