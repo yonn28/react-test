@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person'
 
+
 class App extends Component {
   
 
@@ -55,7 +56,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover':{
+        backgroundColor: 'lightgreen',
+        color:'black'
+      }
     };
 
     let persons = null;
@@ -78,7 +83,12 @@ class App extends Component {
             </div>
        );
        
-       style.backgroundColor= 'red';
+        style.backgroundColor= 'red';
+
+        style[':hover']={
+          backgroundColor: 'salmon',
+          color:'black'
+        }
 
       }
 
@@ -93,14 +103,16 @@ class App extends Component {
       }
 
     return (
-      <div className="App">
-        <h1>hi I'm a react app</h1>
-        <p className={classes.join(' ')} >This is working from Javascript and react !!!!!</p>
-        <button style={style} 
-                onClick={this.togglePersonsHandler}> Toggle Persons </button>
-        {persons}
+      
+        <div className="App">
+          <h1>hi I'm a react app</h1>
+          <p className={classes.join(' ')} >This is working from Javascript and react !!!!!</p>
+          <button style={style} 
+                  onClick={this.togglePersonsHandler}> Toggle Persons </button>
+          {persons}
 
-      </div>
+        </div>
+      
     );
   }
 }
