@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import './App.css';
+// import './App.css';
+import classes from './App.css'
+
 import Person from './Person/Person'
 
 
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'red' : 'green'};
-  color: white;
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: 'pointer';
+// const StyledButton = styled.button`
+//   background-color: ${props => props.alt ? 'red' : 'green'};
+//   color: white;
+//   font: inherit;
+//   border: 1px solid blue;
+//   padding: 8px;
+//   cursor: 'pointer';
 
-  &:hover {
-    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-    color:black;
-  }
-`;
+//   &:hover {
+//     background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+//     color:black;
+//   }
+// `;
 
 class App extends Component {
   
-
   state = {
     persons: [
       {id:'asbb1',name:'yonny' , age: 27},
@@ -67,6 +68,7 @@ class App extends Component {
 
 
     let persons = null;
+    let btnClass = [classes.Button]
 
 
     if(this.state.showPersons){
@@ -85,28 +87,28 @@ class App extends Component {
                 })}
             </div>
        );
+       btnClass.push(classes.Red)
        
       }
 
-      const classes = [];
+      const Assignedclasses = [];
 
       if(this.state.persons.length <= 2){
-        classes.push('red');
+        Assignedclasses.push(classes.red);
       }
 
       if(this.state.persons.length <= 1){
-        classes.push('bold');
+        Assignedclasses.push(classes.bold);
       }
 
     return (
       
-        <div className="App">
+        <div className={classes.App}>
           <h1>hi I'm a react app</h1>
-          <p className={classes.join(' ')} >This is working from Javascript and react !!!!!</p>
-          <StyledButton alt ={this.state.showPersons}
-                  onClick={this.togglePersonsHandler}> Toggle Persons </StyledButton>
+          <p className={Assignedclasses.join(' ')} >This is working from Javascript and react !!!!!</p>
+          <button className={btnClass.join(' ')} alt ={this.state.showPersons}
+                  onClick={this.togglePersonsHandler}> Toggle Persons </button>
           {persons}
-
         </div>
       
     );
