@@ -102,7 +102,6 @@ class App extends Component {
       }
 
     return (
-      
         <div className={classes.App}>
           <h1>hi I'm a react app</h1>
           <p className={Assignedclasses.join(' ')} >This is working from Javascript and react !!!!!</p>
