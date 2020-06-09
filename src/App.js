@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import classes from './App.css'
 
 import Person from './Person/Person'
+import ErrorBoundary from './ErrorBundary/ErrorBundary'
 
 
 // const StyledButton = styled.button`
@@ -76,13 +77,14 @@ class App extends Component {
             <div >
                 {this.state.persons.map( (person, index)  =>{
                   return (
-                    <Person 
-                      name={person.name} 
-                      age={person.age}
-                      click={() => this.deletePersonHandler(index)}
-                      key = {person.id}
-                      changed = {(event)=> this.nameChangeHandler(event,person.id)}
-                      />                  
+                    <ErrorBoundary key = {person.id}>
+                      <Person 
+                        name={person.name} 
+                        age={person.age}
+                        click={() => this.deletePersonHandler(index)}
+                        changed = {(event)=> this.nameChangeHandler(event,person.id)}
+                        /> 
+                    </ErrorBoundary>             
                   )
                 })}
             </div>
@@ -105,11 +107,10 @@ class App extends Component {
         <div className={classes.App}>
           <h1>hi I'm a react app</h1>
           <p className={Assignedclasses.join(' ')} >This is working from Javascript and react !!!!!</p>
-          <button className={btnClass.join(' ')} alt ={this.state.showPersons}
+          <button className={btnClass.join(' ')} alt={this.state.showPersons.toString()}
                   onClick={this.togglePersonsHandler}> Toggle Persons </button>
           {persons}
         </div>
-      
     );
   }
 }
