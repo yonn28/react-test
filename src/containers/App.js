@@ -3,23 +3,9 @@ import styled from 'styled-components';
 // import './App.css';
 import classes from './App.css'
 
-import Person from './Person/Person'
-import ErrorBoundary from './ErrorBundary/ErrorBundary'
+import Person from '../components/Persons/Person/Person'
+import ErrorBoundary from '../ErrorBundary/ErrorBundary'
 
-
-// const StyledButton = styled.button`
-//   background-color: ${props => props.alt ? 'red' : 'green'};
-//   color: white;
-//   font: inherit;
-//   border: 1px solid blue;
-//   padding: 8px;
-//   cursor: 'pointer';
-
-//   &:hover {
-//     background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-//     color:black;
-//   }
-// `;
 
 class App extends Component {
   
@@ -77,14 +63,13 @@ class App extends Component {
             <div >
                 {this.state.persons.map( (person, index)  =>{
                   return (
-                    <ErrorBoundary key = {person.id}>
                       <Person 
                         name={person.name} 
                         age={person.age}
                         click={() => this.deletePersonHandler(index)}
+                        key = {person.id}
                         changed = {(event)=> this.nameChangeHandler(event,person.id)}
-                        /> 
-                    </ErrorBoundary>             
+                        />         
                   )
                 })}
             </div>
