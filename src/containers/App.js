@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 // import './App.css';
 import classes from './App.css'
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 
-import Person from '../components/Persons/Person/Person'
-import ErrorBoundary from '../ErrorBundary/ErrorBundary'
+
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('[App.js] constructor');
+  }
   
   state = {
     persons: [
@@ -19,6 +21,16 @@ class App extends Component {
     ],
     showPersons: true
   }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('[app.js] getDerivedStateFromProps',props);
+    return state;
+  }
+
+  componentDidMount(){
+    console.log('[App.js] componentDidMount')
+  }
+
 
   deletePersonHandler = (index)=>{
     const persons = [...this.state.persons];
@@ -54,7 +66,7 @@ class App extends Component {
   }
 
   render() {
-
+     console.log('[App.js] render');
 
     let persons = null;
  
