@@ -28,9 +28,17 @@ class App extends Component {
   }
 
   componentDidMount(){
-    console.log('[App.js] componentDidMount')
+    console.log('[App.js] componentDidMount');
   }
 
+  shouldComponentUpdate(){
+    console.log('[Appjs] shouldComponentUpdate');
+    return true
+  }
+
+  componentDidUpdate(){
+    console.log('[Appjs] componentDidUpadate');
+  }
 
   deletePersonHandler = (index)=>{
     const persons = [...this.state.persons];
