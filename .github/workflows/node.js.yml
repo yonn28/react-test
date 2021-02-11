@@ -23,4 +23,7 @@ jobs:
     steps:
     - name: Bump Versions
       uses: remorses/bump-version@v8
+      with:
+        version_file: ./package.json
+        github_token: e015b327d5db235ae39ac38da3ea4553675821b3
 
