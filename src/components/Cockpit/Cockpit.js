@@ -7,7 +7,7 @@ const cockpit = (props) =>{
       console.log('[cockpit.js] UseEffect');
       //Http Request..
       const timer = setTimeout(() =>{
-        alert('Saved data to cloud!');
+        alert('Saved data to cloud!')
       }, 1000);
       return () => {
         clearTimeout(timer)
