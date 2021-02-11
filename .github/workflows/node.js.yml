@@ -15,5 +15,5 @@ jobs:
       - name: Bump Versions
         uses: michmich112/version-bumper@master
         with:
-          options-file: './config.json'
+          options-file: './configTagReleases.json'
           github-token: e015b327d5db235ae39ac38da3ea4553675821b3
