@@ -1,19 +1,6 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-- name: Conventional Changelog Action
-  uses: TriPSs/conventional-changelog-action@v3
-  with:
-    github-token: e015b327d5db235ae39ac38da3ea4553675821b3
-    git-message: 'chore(release): {version}'
-    git-user-name: 'Awesome Changelog Action'
-    git-user-email: 'ycnova@unal.edu.co'
-    preset: 'react'
-    tag-prefix: 'v'
-    output-file: 'MY_CUSTOM_CHANGELOG.md'
-    release-count: '10'
-    version-file: './package.json' // or .yml, .yaml, .toml
-    version-path: 'version'
-    skip-on-empty: 'false'
-    skip-version-file: 'false'
-    skip-commit: 'false'
+- name: Bump Versions
+  uses: remorses/bump-version@v8
+
