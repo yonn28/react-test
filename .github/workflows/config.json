@@ -10,7 +10,7 @@
       },
       {
         "trigger": "commit",
-        "bump": "minor",
+        "bump": "major",
         "branch": "master",
         "reset": "build"
       },
