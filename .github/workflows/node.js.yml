@@ -20,4 +20,3 @@ jobs:
           files: "[]" 
           rules: '[{"trigger":"commit","bump":"build"}, {"trigger":"commit","branch":"release","bump":"major", "reset":["minor","build"]}]'
           github-token: e015b327d5db235ae39ac38da3ea4553675821b3
-
