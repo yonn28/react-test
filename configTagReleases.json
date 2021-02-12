@@ -1,0 +1,28 @@
+{
+    "scheme": "custom",
+    "schemeDefinition": "major.minor[.build][->alpha]",
+    "versionFile": "./package.json",
+    "files": [],
+    "rules": [
+      {
+        "trigger": "pull-request",
+        "bump": "major",
+        "branch": "master",
+        "reset": "manual"
+      },
+      {
+        "trigger": "pull-request",
+        "bump": "minor",
+        "branch": "staging",
+        "reset": "manual",
+        "tag": false
+      },
+      {
+        "trigger": "pull-request",
+        "bump": "qa",
+        "branch": "release",
+        "reset": "alpha",
+        "tag": false
+      }
+    ]
+  }

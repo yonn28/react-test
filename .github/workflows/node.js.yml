@@ -1,6 +1,6 @@
 name: Manage versions
 
-on: [push]
+on: [push,pull_request, workflow_dispatch]
 
 jobs:
   bump:
@@ -15,5 +15,5 @@ jobs:
       - name: Bump Versions
         uses: michmich112/version-bumper@master
         with:
-          options-file: './config.json'
-          github-token: e015b327d5db235ae39ac38da3ea4553675821b3
+          options-file: './configTagReleases.json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
