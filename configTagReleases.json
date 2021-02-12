@@ -21,7 +21,7 @@
         "branch": "qa",
         "bump": "alpha",
         "tag": false,
-        "trigger": "commit"
+        "trigger": "pull-request"
       }
     ]
   }
