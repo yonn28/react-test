@@ -18,11 +18,10 @@
         "trigger": "manual"
       },
       {
-        "branch": "origin/qa",
+        "branch": "qa",
         "bump": "alpha",
-        "bumpStatus":"alpha",
-        "tag": false,
         "reset": "build",
+        "tag": false,
         "trigger": "commit"
       }
     ]
