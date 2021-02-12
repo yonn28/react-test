@@ -1,6 +1,6 @@
 {
     "scheme": "custom",
-    "schemeDefinition": "major.minor[.build][->alpha]",
+    "schemeDefinition": "major.minor.[build][->alpha]",
     "versionFile": "./package.json",
     "files": [],
     "rules": [
@@ -18,7 +18,7 @@
         "tag": false
       },
       {
-        "trigger": "commit",
+        "trigger": "pull-request",
         "bump": "qa",
         "branch": "release",
         "reset": "build",
