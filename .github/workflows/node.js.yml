@@ -1,6 +1,6 @@
 name: Manage versions
 
-on: [push,pull_request, workflow_dispatch]
+on: [push ,pull_request, workflow_dispatch]
 
 jobs:
   bump:
@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '12'
       - name: Bump Versions
-        uses: michmich112/version-bumper@v1.0.4
+        uses: michmich112/version-bumper@master
         with:
           options-file: './configTagReleases.json'
           github-token: ${{ secrets.GITHUB_TOKEN }}
