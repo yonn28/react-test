@@ -22,7 +22,7 @@
         "bump": "build",
         "branch": "qa",
         "reset": "alpha",
-        "tag": false
+        "tag": true
       }
     ]
   }
