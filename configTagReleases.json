@@ -18,10 +18,10 @@
         "tag": false
       },
       {
-        "trigger": "pull-request",
+        "trigger": "commit",
         "bump": "qa",
         "branch": "release",
-        "reset": "major",
+        "reset": "build",
         "tag": false
       }
     ]
