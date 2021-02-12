@@ -21,7 +21,7 @@
         "trigger": "commit",
         "bump": "qa",
         "branch": "release",
-        "reset": ".build",
+        "reset": "build",
         "tag": false
       }
     ]
