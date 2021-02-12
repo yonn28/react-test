@@ -1,6 +1,6 @@
 {
     "scheme": "custom",
-    "schemeDefinition": "major.minor[.build][->patch]",
+    "schemeDefinition": "major.minor[.build][->alpha]",
     "versionFile": "./package.json",
     "files": [],
     "rules": [
@@ -9,15 +9,25 @@
         "bump": "build"
       },
       {
-        "trigger": "commit",
+        "trigger": "pull-request",
         "bump": "major",
         "branch": "master",
         "reset": "build"
       },
       {
         "trigger": "commit",
-        "bump": "major",
+        "bump": "minor",
         "branch": "release",
+        "tag": false,
+        "reset": [
+          "minor",
+          "build"
+        ]
+      },
+      {
+        "trigger": "commit",
+        "bump": "major",
+        "branch": "fix-version",
         "reset": [
           "minor",
           "build"
