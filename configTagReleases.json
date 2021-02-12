@@ -5,32 +5,24 @@
     "files": [],
     "rules": [
       {
-        "trigger": "commit",
-        "bump": "build"
-      },
-      {
-        "trigger": "commit",
+        "trigger": "pull-request",
         "bump": "major",
         "branch": "master",
-        "reset": "build"
+        "reset": "manual"
       },
       {
-        "trigger": "commit",
-        "bump": "build",
+        "trigger": "pull-request",
+        "bump": "minor",
+        "branch": "staging",
+        "reset": "manual",
+        "tag": false
+      },
+      {
+        "trigger": "pull-request",
+        "bump": "qa",
         "branch": "release",
-        "reset": [
-          "minor",
-          "build"
-        ]
-      },
-      {
-        "trigger": "commit",
-        "bump": "major",
-        "branch": "fix-version",
-        "reset": [
-          "minor",
-          "build"
-        ]
+        "reset": "alpha",
+        "tag": false
       }
     ]
   }
