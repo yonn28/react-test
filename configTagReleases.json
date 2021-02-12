@@ -7,13 +7,13 @@
       {
         "branch": "master",
         "bump": "major",
-        "reset": ["minor","build", "alpha"],
+        "reset": "alpha",
         "trigger": "manual"
       },
       {
         "branch": "staging",
         "bump": "minor",
-        "reset": ["build", "alpha"],
+        "reset": "build",
         "tag": false,
         "trigger": "manual"
       },
@@ -21,7 +21,7 @@
         "branch": "qa",
         "bump": "alpha",
         "tag": false,
-        "trigger": "pull-request"
+        "trigger": "commit"
       }
     ]
   }
