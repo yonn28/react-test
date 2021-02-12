@@ -8,13 +8,13 @@
         "trigger": "manual",
         "bump": "major",
         "branch": "master",
-        "reset": "build"
+        "reset": ["build", "alpha"]
       },
       {
         "trigger": "manual",
         "bump": "minor",
         "branch": "staging",
-        "reset": "build",
+        "reset": ["build", "alpha"],
         "tag": false
       },
       {
