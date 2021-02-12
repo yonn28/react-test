@@ -16,6 +16,13 @@
         "reset": "build",
         "tag": false,
         "trigger": "manual"
+      },
+      {
+        "trigger": "commit",
+        "bump": "alpha",
+        "tag": false,
+        "branch": "qa",
+        "reset": "build"
       }
     ]
   }
