@@ -1,27 +1,27 @@
 {
     "scheme": "custom",
-    "schemeDefinition": "major.minor.[build][->alpha]",
+    "schemeDefinition": "major.minor[.build][->alpha]",
     "versionFile": "./package.json",
     "files": [],
     "rules": [
       {
-        "trigger": "pull-request",
+        "trigger": "manual",
         "bump": "major",
         "branch": "master",
-        "reset": "manual"
+        "reset": "build"
       },
       {
-        "trigger": "pull-request",
+        "trigger": "manual",
         "bump": "minor",
         "branch": "staging",
-        "reset": "manual",
+        "reset": "build",
         "tag": false
       },
       {
         "trigger": "pull-request",
-        "bump": "qa",
-        "branch": "release",
-        "reset": "build",
+        "bump": "build",
+        "branch": "qa",
+        "reset": "alpha",
         "tag": false
       }
     ]
