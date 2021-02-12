@@ -9,7 +9,7 @@
         "bump": "build"
       },
       {
-        "trigger": "pull-request",
+        "trigger": "commit",
         "bump": "major",
         "branch": "master",
         "reset": "build"
