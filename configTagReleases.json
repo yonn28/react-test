@@ -14,7 +14,7 @@
         "trigger": "manual",
         "bump": "minor",
         "branch": "staging",
-        "reset": ["build", "alpha"],
+        "reset": "build",
         "tag": false
       },
       {
