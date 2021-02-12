@@ -18,7 +18,7 @@
         "tag": false
       },
       {
-        "trigger": "pull-request",
+        "trigger": "commit",
         "bump": "alpha",
         "branch": "qa",
         "reset": "build"
