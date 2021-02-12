@@ -23,7 +23,7 @@
         "bumpStatus":"alpha",
         "tag": false,
         "reset": "build",
-        "trigger": "pull-request"
+        "trigger": "commit"
       }
     ]
   }
