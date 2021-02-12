@@ -18,7 +18,7 @@
         "trigger": "manual"
       },
       {
-        "branch": "origin/qa",
+        "branch": "merge",
         "bump": "alpha",
         "tag": false,
         "reset": "build",
