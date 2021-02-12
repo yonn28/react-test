@@ -16,12 +16,6 @@
         "reset": "build",
         "tag": false,
         "trigger": "manual"
-      },
-      {
-        "branch": "qa",
-        "bump": "alpha",
-        "tag": false,
-        "trigger": "commit"
       }
     ]
   }
