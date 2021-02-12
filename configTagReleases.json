@@ -16,9 +16,8 @@
       },
       {
         "trigger": "commit",
-        "bump": "minor",
+        "bump": "build",
         "branch": "release",
-        "tag": false,
         "reset": [
           "minor",
           "build"
