@@ -18,11 +18,11 @@
         "trigger": "manual"
       },
       {
-        "trigger": "commit",
+        "branch": "qa",
         "bump": "alpha",
         "tag": false,
-        "branch": "qa",
-        "reset": "build"
+        "reset": "build",
+        "trigger": "commit"
       }
     ]
   }
