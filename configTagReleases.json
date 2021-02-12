@@ -19,7 +19,7 @@
       },
       {
         "trigger": "commit",
-        "bump": "minor",
+        "bump": "build",
         "branch": "qa",
         "reset": "build"
       }
