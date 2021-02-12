@@ -21,7 +21,8 @@
         "trigger": "commit",
         "bump": "alpha",
         "branch": "qa",
-        "reset": "build"
+        "reset": "build",
+        "tag": false
       }
     ]
   }
