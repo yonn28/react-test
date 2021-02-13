@@ -5,7 +5,6 @@
     "files": [],
     "rules": [
       {
-        "tag": false,
         "branch": "qa",
         "bump": "alpha",
         "trigger": "commit"
