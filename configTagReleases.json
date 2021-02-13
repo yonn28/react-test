@@ -19,7 +19,7 @@
       {
         "branch": "qa",
         "bump": "alpha",
-        "tag": false,
+        "tag": true,
         "trigger": "commit"
       }
     ]
