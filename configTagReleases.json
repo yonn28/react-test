@@ -5,20 +5,9 @@
     "files": [],
     "rules": [
       {
-        "branch": "master",
-        "bump": "major",
-        "reset": "alpha",
-        "trigger": "manual"
-      },
-      {
-        "branch": "staging",
-        "bump": "minor",
-        "trigger": "manual"
-      },
-      {
+        "tag": false,
         "branch": "qa",
         "bump": "alpha",
-        "tag": false,
         "trigger": "commit"
       }
     ]
