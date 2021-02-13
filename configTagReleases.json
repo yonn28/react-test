@@ -6,10 +6,9 @@
   "rules": [
     {
       "trigger": "commit",
-      "tag": false,
       "bump": "minor",
       "branch": "qa",
-      "reset": "build"
+      "tag": false
     }
   ]
 }
