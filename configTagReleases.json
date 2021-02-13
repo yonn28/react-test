@@ -7,8 +7,7 @@
     {
       "trigger": "commit",
       "bump": "patch",
-      "branch": "qa",
-      "tag": false
+      "branch": "qa"
     }
   ]
 }
