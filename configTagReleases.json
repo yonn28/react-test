@@ -13,13 +13,12 @@
       {
         "branch": "staging",
         "bump": "minor",
-        "tag": false,
         "trigger": "manual"
       },
       {
         "branch": "qa",
         "bump": "alpha",
-        "tag": true,
+        "tag": false,
         "trigger": "commit"
       }
     ]
