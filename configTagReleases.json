@@ -1,13 +1,14 @@
 {
-    "scheme": "custom",
-    "schemeDefinition": "major.minor[.build][->alpha]",
-    "versionFile": "./package.json",
-    "files": [],
-    "rules": [
-      {
-        "branch": "qa",
-        "bump": "alpha",
-        "trigger": "commit"
-      }
-    ]
-  }
+  "scheme": "custom",
+  "schemeDefinition": "major.minor[.build][->patch]",
+  "versionFile": "./package.json",
+  "files": [],
+  "rules": [
+    {
+      "trigger": "commit",
+      "bump": "minor",
+      "branch": "qa",
+      "reset": "build"
+    }
+  ]
+}
