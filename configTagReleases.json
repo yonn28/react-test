@@ -6,7 +6,7 @@
   "rules": [
     {
       "trigger": "commit",
-      "bump": "minor",
+      "bump": "patch",
       "branch": "qa",
       "tag": false
     }
