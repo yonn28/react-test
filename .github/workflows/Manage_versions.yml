@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 12
       - name:  'Automated Version Bump for qa'
-        if: steps.extract_branch.outputs.branch == 'qa'
+        if: github.ref == 'refs/heads/qa'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -33,7 +33,7 @@ jobs:
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'    
       - name:  'Automated Version Bump for master'
-        if: steps.extract_branch.outputs.branch == 'master'
+        if: github.ref == 'refs/heads/master'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
