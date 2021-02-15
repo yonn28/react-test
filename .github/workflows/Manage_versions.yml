@@ -7,7 +7,7 @@ on:
 
 jobs:
   bump-version:
-    name: "Bump Version on master"
+    name: "Bump Version on qa"
     runs-on: ubuntu-latest
 
     steps:
@@ -21,14 +21,13 @@ jobs:
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - name:  'Automated Version Bump'
+      - name:  'Automated Version Bump for qa'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           minor-wording:  'add, Adds'
-          major-wording:  'MAJOR,cut-major'
-          patch-wording:  'patch,fixes'    
+          major-wording:  'MAJOR,cut-major'   
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'
       - name: "cat package.json"
