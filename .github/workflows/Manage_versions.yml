@@ -28,6 +28,7 @@ jobs:
         with:
           minor-wording:  'add, Adds'
           major-wording:  'MAJOR,cut-major'
+          target-branch: 'qa'
           patch-wording:  'patch,fixes'    
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'     
