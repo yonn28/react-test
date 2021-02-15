@@ -22,7 +22,6 @@ jobs:
         with:
           node-version: 12
       - name:  'Automated Version Bump for qa'
-        if: github.ref == 'refs/heads/qa'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -32,10 +31,10 @@ jobs:
           target-branch: 'qa'   
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'    
-      - name: package-version
+      - name: package-version-for-tag-to-master
         if: github.ref == 'refs/heads/master'
         run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
-      - name: package-version-to-git-tag
+      - name: package-version-to-git-tag--info
         if: github.ref == 'refs/heads/master'
         uses: pkgdeps/git-tag-action@v2
         with:
