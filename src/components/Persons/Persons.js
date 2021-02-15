@@ -38,7 +38,6 @@ class Persons extends Component{
                 />         
           );
         });
- 
   }
 }
 // const persons = (props) => {
