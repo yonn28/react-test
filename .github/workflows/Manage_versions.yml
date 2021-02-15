@@ -41,7 +41,8 @@ jobs:
           minor-wording:  'add, Adds'
           major-wording:  'MAJOR,cut-major'
           target-branch: 'master'   
-          rc-wording:     'RELEASE, alpha'   
+          rc-wording:     'RELEASE, alpha' 
+          skip-tag:  'false'    
       - name: "cat package.json"
         run: cat ./package.json
       - name:  'Output Step'
