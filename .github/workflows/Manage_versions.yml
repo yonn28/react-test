@@ -3,11 +3,11 @@ name: "Bump Version"
 
 on:
   push:
-    branches: [qa]
+    branches: [ master , staging, qa]
 
 jobs:
   bump-version:
-    name: "Bump Version"
+    name: "Bump Version on master"
     runs-on: ubuntu-latest
 
     steps:
@@ -21,78 +21,16 @@ jobs:
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - name:  'Automated Version Bump for qa'
+      - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          target-branch: 'qa'
           minor-wording:  'add, Adds'
-          major-wording:  'MAJOR,cut-major'   
+          major-wording:  'MAJOR,cut-major'
+          patch-wording:  'patch,fixes'    
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name:  'Output Step'
-        env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-        run: echo "new tag $NEW_TAG"
-on:
-  push:
-    branches: [ staging]
-
-jobs:
-  bump-version:
-    name: "Bump Version"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: 12
-      - name:  'Automated Version Bump for staging'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          target-branch: 'staging'
-          minor-wording:  'add, Adds'
-          major-wording:  'MAJOR,cut-major'   
-          rc-wording:     'RELEASE, alpha'
-          skip-tag:  'true'
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name:  'Output Step'
-        env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-        run: echo "new tag $NEW_TAG"
-on:
-  push:
-    branches: [ master]
-
-jobs:
-  bump-version:
-    name: "Bump Version"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: 12
       - name:  'Automated Version Bump for master'
         uses:  'phips28/gh-action-bump-version@master'
         env:
@@ -101,12 +39,10 @@ jobs:
           target-branch: 'master'
           minor-wording:  'add, Adds'
           major-wording:  'MAJOR,cut-major'   
-          rc-wording:     'RELEASE, alpha'
+          rc-wording:     'RELEASE, alpha'      
       - name: "cat package.json"
         run: cat ./package.json
       - name:  'Output Step'
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
-
-  
