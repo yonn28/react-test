@@ -11,7 +11,6 @@ class Persons extends Component{
     console.log('[Persons.js] shouldComponentUpdate');
     return true;
   }
-  
   getSnapshotBeforeUpdate(prevProps, prevState){
     console.log('[Persons.js] getSnapshotBeforeUpdate');
     return {message:'Snapshot'};
@@ -21,9 +20,6 @@ class Persons extends Component{
     console.log(snapshot);
   }
 
-  // componentWillMount(){
-  //   console.log('[Person.js] componenentWillUnmount')
-  // }
 
   render(){
     console.log('[Persons.js] rendering...')
@@ -38,7 +34,6 @@ class Persons extends Component{
                 />         
           );
         });
- 
   }
 }
 // const persons = (props) => {
