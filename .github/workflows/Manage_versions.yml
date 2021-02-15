@@ -3,7 +3,7 @@ name: "Bump Version"
 
 on:
   push:
-    branches: [ master , staging, qa]
+    branches: [ master , qa]
 
 jobs:
   bump-version:
@@ -21,7 +21,7 @@ jobs:
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - name:  'Automated Version Bump'
+      - name:  'Automated Version Bump for qa'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,6 +31,16 @@ jobs:
           target-branch: 'qa'   
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'     
+      - name:  'Automated Version bump tag'
+        if: github.ref == 'refs/heads/master'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          minor-wording:  'add, Adds'
+          major-wording:  'MAJOR,cut-major'
+          target-branch: 'master'   
+          rc-wording:     'RELEASE, alpha'     
       - name: "cat package.json"
         run: cat ./package.json
       - name:  'Output Step'
