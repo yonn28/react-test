@@ -2,12 +2,12 @@
 name: "Bump Version"
 
 on:
-  pull_request:
+  push:
     branches: [ master , staging, qa]
 
 jobs:
   bump-version:
-    name: "Bump Version on qa"
+    name: "Bump Version"
     runs-on: ubuntu-latest
 
     steps:
@@ -26,10 +26,30 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          target-branch: 'qa'
           minor-wording:  'add, Adds'
           major-wording:  'MAJOR,cut-major'   
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'
+      - name:  'Automated Version Bump for staging'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: 'staging'
+          minor-wording:  'add, Adds'
+          major-wording:  'MAJOR,cut-major'   
+          rc-wording:     'RELEASE, alpha'
+          skip-tag:  'true'
+      - name:  'Automated Version Bump for master'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: 'master'
+          minor-wording:  'add, Adds'
+          major-wording:  'MAJOR,cut-major'   
+          rc-wording:     'RELEASE, alpha'
       - name: "cat package.json"
         run: cat ./package.json
       - name:  'Output Step'
