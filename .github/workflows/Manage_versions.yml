@@ -32,17 +32,18 @@ jobs:
           target-branch: 'qa'   
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'    
-      - name:  'Automated Version Bump for master'
+      - name: package-version
         if: github.ref == 'refs/heads/master'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      - name: package-version-to-git-tag
+        if: github.ref == 'refs/heads/master'
+        uses: pkgdeps/git-tag-action@v2
         with:
-          minor-wording:  'add, Adds'
-          major-wording:  'MAJOR,cut-major'
-          target-branch: 'master'   
-          rc-wording:     'RELEASE, alpha' 
-          skip-tag:  'false'    
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          version: ${{ env.PACKAGE_VERSION }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: "v"  
       - name: "cat package.json"
         run: cat ./package.json
       - name:  'Output Step'
