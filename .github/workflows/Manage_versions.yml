@@ -7,7 +7,7 @@ on:
 
 jobs:
   bump-version:
-    name: "Bump Version on master"
+    name: "Bump Version"
     runs-on: ubuntu-latest
 
     steps:
@@ -30,16 +30,7 @@ jobs:
           major-wording:  'MAJOR,cut-major'
           patch-wording:  'patch,fixes'    
           rc-wording:     'RELEASE, alpha'
-          skip-tag:  'true'
-      - name:  'Automated Version Bump for master'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          target-branch: 'master'
-          minor-wording:  'add, Adds'
-          major-wording:  'MAJOR,cut-major'   
-          rc-wording:     'RELEASE, alpha'      
+          skip-tag:  'true'     
       - name: "cat package.json"
         run: cat ./package.json
       - name:  'Output Step'
