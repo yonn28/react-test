@@ -1,6 +1,6 @@
 {
   "name": "reat-complete-guide",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
