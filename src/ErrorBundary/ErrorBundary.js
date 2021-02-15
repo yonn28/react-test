@@ -18,7 +18,6 @@ class ErrorBundary extends Component{
             
         }
     }
-
 }
 
 export default ErrorBundary;
