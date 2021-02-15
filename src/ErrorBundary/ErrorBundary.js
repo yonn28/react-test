@@ -15,8 +15,8 @@ class ErrorBundary extends Component{
         return <h1>{this.state.errorMessage}</h1>;
         } else {
             return this.props.children;
+            
         }
-
     }
 
 }
