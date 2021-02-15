@@ -1,0 +1,39 @@
+
+name: "Bump Version"
+
+on:
+  push:
+    branches: [ master , staging, qa]
+
+jobs:
+  bump-version:
+    name: "Bump Version"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 12
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          minor-wording:  'add, Adds'
+          major-wording:  'MAJOR,cut-major'
+          target-branch: 'qa'   
+          rc-wording:     'RELEASE, alpha'
+          skip-tag:  'true'     
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name:  'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
