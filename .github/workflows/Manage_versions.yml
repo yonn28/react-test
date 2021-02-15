@@ -3,7 +3,7 @@ name: "Bump Version"
 
 on:
   push:
-    branches: [ qa]
+    branches: [ qa, master]
 
 jobs:
   bump-version:
@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 12
       - name:  'Automated Version Bump for qa'
+        if: steps.extract_branch.outputs.branch == 'qa'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,40 +32,15 @@ jobs:
           target-branch: 'qa'   
           rc-wording:     'RELEASE, alpha'
           skip-tag:  'true'    
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name:  'Output Step'
-        env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-        run: echo "new tag $NEW_TAG"
-on:
-  push:
-    branches: [ master]
-
-jobs:
-  bump-version:
-    name: "Bump Version"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: "cat package.json"
-        run: cat ./package.json
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: 12
-      - name:  'Automated Version Bump for qa'
+      - name:  'Automated Version Bump for master'
+        if: steps.extract_branch.outputs.branch == 'master'
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           minor-wording:  'add, Adds'
           major-wording:  'MAJOR,cut-major'
-          target-branch: 'qa'   
+          target-branch: 'master'   
           rc-wording:     'RELEASE, alpha'   
       - name: "cat package.json"
         run: cat ./package.json
