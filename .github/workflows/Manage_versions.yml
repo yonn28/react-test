@@ -29,7 +29,8 @@ jobs:
           minor-wording:  'add, Adds'
           major-wording:  'MAJOR,cut-major'
           target-branch: 'qa'   
-          rc-wording:     'RELEASE, alpha'
+          rc-wording: 'RELEASE, alpha'
+          default: prerelease
           skip-tag:  'true'    
       - name: package-version-for-tag-to-master
         if: github.ref == 'refs/heads/master'
